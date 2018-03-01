@@ -19,7 +19,7 @@ module.exports = {
 		                 "user" : "BeefWillingtonLover",
 		                 "image" : "BeefWellington",
 		                 "instructions" : [
-		                                   {"title" : "STEP 1",
+		                                   {"title" : "STEP ONE",
 		                                   "image" : "Picasso1",
 		                                   "info" : "INFO 1",
 		                                   "ingredients" : "3 tbsp cumin, 4 cup cream, 5 tsp parsley",
