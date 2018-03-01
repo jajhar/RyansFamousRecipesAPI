@@ -1,0 +1,18 @@
+/**
+ * UserController
+ *
+ * @description :: Server-side logic for managing Users
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ */
+
+module.exports = {
+	
+
+	loginUser: function (req, res, cb) {
+    
+
+      // return res.json(json);
+    }
+
+};
+
