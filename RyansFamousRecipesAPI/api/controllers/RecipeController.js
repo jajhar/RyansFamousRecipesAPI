@@ -9,58 +9,30 @@ module.exports = {
 	
 	getRecipes: function (req, res, cb) {
     
-    	// Fetch the recipes from the DB here.
+    	// Fetch the recipes from the DB here
+    	Recipe.find().exec(function(err, recipes) {
 
-      return res.json({
-		    "recipes" : [
-		                 {
-		                 "name" : "Beef Wellington",
-		                 "description" : "Juicy beef wrapped in a not-so-juicy crusted bread.",
-		                 "user" : "BeefWillingtonLover",
-		                 "image" : "BeefWellington",
-		                 "instructions" : [
-		                                   {"title" : "STEP ONE",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 1",
-		                                   "ingredients" : "3 tbsp cumin, 4 cup cream, 5 tsp parsley",
-		                                   "time" : "8"},
-		                                   {"title" : "STEP 2",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 2",
-		                                   "ingredients" : "5 tbsp cumin, 3 cup milk, 2 tsp parsley",
-		                                   "time" : "7"},
-		                                   {"title" : "STEP 3",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 3",
-		                                   "ingredients" : "4 quarts orange, 11 tsp cinammon, 5 tsp cilantro",
-		                                   "time" : "6"},
-		                                   ]
-		                 },
-		                 {
-		                 "name" : "Drunken Noodles",
-		                 "description" : "Noodles so good, they'll give you a light buzz",
-		                 "user" : "NoodlesAnonymous1234",
-		                 "image" : "DrunkenNoodles",
-		                 "instructions" : [
-		                                   {"title" : "STEP 1",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 1",
-		                                   "ingredients" : "3 tbsp cumin, 4 cup cream, 5 tsp parsley",
-		                                   "time" : "8"},
-		                                   {"title" : "STEP 2",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 2",
-		                                   "ingredients" : "5 tbsp cumin, 3 cup milk, 2 tsp parsley",
-		                                   "time" : "7"},
-		                                   {"title" : "STEP 3",
-		                                   "image" : "Picasso1",
-		                                   "info" : "INFO 3",
-		                                   "ingredients" : "4 quarts orange, 11 tsp cinammon, 5 tsp cilantro",
-		                                   "time" : "6"},
-		                                   ]
-		                 }
-		     ]
-		});
+    		if (err) {
+		        return res.serverError(err);
+    		}
+
+    		return res.json(recipes);
+    	});
+    },
+
+    createRecipe: function (req, res, cb) {
+
+		// Make a new recipe object and throw it in the DB    
+		var recipeJSON = req.params.all()
+
+    	Recipe.create(recipeJSON).exec(function (err, newRecipe) {
+
+    		if (err) {
+		        return res.serverError(err);
+    		}
+			
+			return res.json(newRecipe);		
+    	});
     }
 };
 

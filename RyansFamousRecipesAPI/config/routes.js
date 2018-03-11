@@ -35,7 +35,22 @@ module.exports.routes = {
   'get /recipes': {
     controller: 'RecipeController',
     action: 'getRecipes'
-  }
+  },
+
+  'post /recipe': {
+    controller: 'RecipeController',
+    action: 'createRecipe'
+  }, 
+
+  'post /user': {
+    controller: 'UserController',
+    action: 'createUserID'
+  }, 
+
+  'get /user': {
+    controller: 'UserController',
+    action: 'getRecipes'
+  },
 
   /***************************************************************************
   *                                                                          *

@@ -7,12 +7,14 @@
 
 module.exports = {
 
+  schema: true,
+  tableName: "User",
+
   attributes: {
 
-	username: {
-      type: 'string',
-      required: true
-    }
+  	"email": {
+  		type: 'string',
+  		required: true
+  	}
   }
 };
-

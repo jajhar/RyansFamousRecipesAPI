@@ -7,8 +7,33 @@
 
 module.exports = {
 
+  schema: true,
+  tableName: "Recipe",
+
   attributes: {
 
+  	"name": {
+  		type: 'string',
+  		required: true
+  	},
+
+  	"description": {
+  		type: 'string',
+  		required: true
+  	},
+
+  	"userID": {
+  		type: 'string'
+  	},
+
+  	"image": {
+  		type: 'string'
+  	},
+
+	"instructions": {
+  		type: 'array',
+  		defaultsTo: []
+  	}
   }
 };
 
